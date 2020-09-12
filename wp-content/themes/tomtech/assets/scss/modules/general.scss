@@ -5,6 +5,19 @@ body {
 .container {
     margin: 0 auto;
     max-width: 980px;
+    width: 100%;
+
+    &.wider {
+        max-width: 1200px;
+
+        @media screen and (min-width: $xxl) {
+            max-width: 1400px;
+        }
+    }
+
+    .content-wrapper {
+        padding: 0 15px;
+    }
 }
 
 .inline-block {
