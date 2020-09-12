@@ -12,7 +12,35 @@
 
     @media screen and (min-width: $lg) {
         .content-wrapper {
-            padding-right: 170px;
+            max-width: 55%;
+        }
+    }
+
+    p, ul, ol {
+        text-align: justify;
+        word-spacing: 5px;
+
+        @media screen and (min-width: $lg) {
+            letter-spacing: 0.5px;
+        }
+    }
+}
+
+.step {
+    margin-top: 50px;
+
+    @media screen and (min-width: $lg) {
+        margin-top: 100px;
+    }
+
+    ul {
+        li {
+            & + li {
+                margin-top: 15px;
+            }
+        }
+        @media screen and (min-width: $lg) {
+            padding-right: 30px;
         }
     }
 }
