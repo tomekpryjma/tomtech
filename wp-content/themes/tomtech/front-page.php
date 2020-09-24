@@ -1,9 +1,10 @@
 <?php
-    $tutorials = get_posts(array(
+    $tutorial_arguments = array(
         'post_type'      => 'tutorial',
         'post_status'    => 'publish',
-        'posts_per_page' => 4,
-    ));
+        'posts_per_page' => -1,
+    );
+    $tutorials          = new WP_Query($tutorial_arguments);
     get_header();
 ?>
 
@@ -17,23 +18,44 @@
     <div class="container text-center">
         <h3><?php echo apply_filters('tomtech_latest_tutorials_text', 'Latest Tutorials'); ?></h3>
     </div>
-    <div class="container flex flex-row">
-        <?php if ($tutorials): ?>
-            <?php foreach ($tutorials as $tutorial): ?>
-                <?php
-                    $title  = $tutorial->post_title;
-                    $link   = get_the_permalink($tutorial->ID);
-                ?>
+    <div class="container">
+        <div class="content-wrapper">
+            <?php if ( $tutorials->have_posts() ): ?>
+                <?php $date_to_display = false; ?>
 
-                <article class="tutorial-clickthrough inline-block card">
-                    <div class="card-body">
-                        <a href="<?php echo esc_url($link); ?>">
-                            <h4><?php echo $title; ?></h4>
+                <ul id="post-listing">
+
+                <?php while ( $tutorials->have_posts() ): $tutorials->the_post(); ?>
+                    <?php
+                        $title  = get_the_title();
+                        $link   = get_the_permalink();
+                        $date   = get_the_date('Y-m');
+                    ?>
+
+                    <?php if ( ! $date_to_display || $date_to_display !== $date ): ?>
+                        <?php $date_to_display = $date; ?>
+                        <li class="date-item">
+                            <h2 class="date-heading"><?php echo $date_to_display; ?></h2>
+                        </li>
+                    <?php endif; ?>
+
+                    
+                    <li>
+                        <span class="post-date">
+                            <?php the_date('Y-m-d'); ?>
+                        </span>
+                        <a class="post-link" href="<?php echo esc_url( $link ); ?>">
+                            <?php echo $title; ?>
                         </a>
-                    </div>
-                </article>
-            <?php endforeach; ?>
-        <?php endif; ?>
+                    </li>
+
+                <?php endwhile; ?>
+
+                </ul>
+
+                <?php wp_reset_postdata(); ?>
+            <?php endif; ?>
+        </div>
     </div>
 </section>
 
