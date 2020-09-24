@@ -19,3 +19,58 @@
         margin: 16px;
     }
 }
+
+#post-listing {
+    list-style-type: none;
+    padding-left: 0;
+
+    .date-heading {
+        color: $neon-blue;
+        margin-bottom: 0;
+    }
+
+    li {
+        & + li {
+            margin-top: 15px;
+        }
+
+        & + .date-item {
+            // border-top: 2px solid $neon-blue;
+            margin-top: 40px;
+            padding-top: 10px;
+
+            @media screen and (min-width: $lg) {
+                // margin-top: 50px;
+                // padding-top: 20px;
+            }
+        }
+
+        a {
+            border-bottom: 2px solid $aquamarine;
+            color: $black;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            padding: 2px;
+            text-decoration: none;
+
+            &:hover {
+                background-color: rgba($aquamarine, 0.1);
+            }
+        }
+    }
+
+    .post-date {
+        display: none;
+    }
+
+    .post-link {
+        display: inline-block;
+    }
+
+    @media screen and (min-width: $md) {
+        .post-date {
+            display: inline-block;
+            width: 110px;
+        }
+    }
+}
