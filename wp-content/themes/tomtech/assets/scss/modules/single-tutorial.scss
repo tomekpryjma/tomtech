@@ -20,11 +20,6 @@
 
     p, ul, ol {
         text-align: justify;
-        word-spacing: 5px;
-
-        @media screen and (min-width: $lg) {
-            letter-spacing: 0.5px;
-        }
     }
 }
 

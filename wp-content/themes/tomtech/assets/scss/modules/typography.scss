@@ -1,4 +1,5 @@
 body {
+    color: $black;
     font-family: Ubuntu, sans-serif;
     line-height: 1.7;
 }
@@ -9,4 +10,15 @@ p {
     & + p {
         margin-top: 25px;
     }
+}
+
+p, ul, ol, a {
+    @media screen and (min-width: $lg) {
+        word-spacing: 5px;
+        letter-spacing: 0.5px;
+    }
+}
+
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1.3;
 }
