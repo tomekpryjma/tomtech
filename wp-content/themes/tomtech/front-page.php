@@ -8,15 +8,21 @@
     get_header();
 ?>
 
+<?php
+/*
 <section id="banner">
     <div class="container flex flex-row align-center justify-center">
         <h2><?php do_action('tomtech_homepage_banner_text'); ?></h2>
     </div>
 </section>
+*/
+?>
+
+
 
 <section id="latest-tutorials">
     <div class="container text-center">
-        <h3><?php echo apply_filters('tomtech_latest_tutorials_text', 'Latest Tutorials'); ?></h3>
+        <h3><?php // echo apply_filters('tomtech_latest_tutorials_text', 'Latest Tutorials'); ?></h3>
     </div>
     <div class="container">
         <div class="content-wrapper">
