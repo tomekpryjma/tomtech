@@ -16,10 +16,8 @@
                             $instructions = get_sub_field('instructions');
                         ?>
 
-                        <div class="step" id="step-<?php echo $step_iteration++; ?>">
-                            <h2><?php echo $title; ?></h2>
-                            <?php echo apply_filters('the_content', $instructions); ?>
-                        </div>
+                        <h2 id="step-<?php echo $step_iteration++; ?>"><?php echo $title; ?></h2>
+                        <?php echo apply_filters('the_content', $instructions); ?>
                     <?php endwhile; ?>
                 <?php endif; ?>
             </div>
