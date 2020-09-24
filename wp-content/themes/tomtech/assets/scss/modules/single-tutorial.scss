@@ -12,7 +12,9 @@
 
     @media screen and (min-width: $lg) {
         .content-wrapper {
-            max-width: 55%;
+            column-count: 2;
+            column-gap: 150px;
+            column-rule: 1px solid $ivory;
         }
     }
 
@@ -43,4 +45,9 @@
             padding-right: 30px;
         }
     }
+}
+
+div.enlighter-v-standard {
+    display: inline-block;
+    width: 100%;
 }
