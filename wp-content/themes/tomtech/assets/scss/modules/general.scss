@@ -20,6 +20,11 @@ body {
     }
 }
 
+img[class*="wp-image"] {
+    height: auto;
+    max-width: 100%;
+}
+
 .inline-block {
     display: inline-block;
 }
