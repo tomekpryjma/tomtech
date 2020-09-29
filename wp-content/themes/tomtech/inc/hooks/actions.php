@@ -18,10 +18,12 @@ function tomtech_custom_post_types() {
 }
 add_action('init', 'tomtech_custom_post_types');
 
-// function tomtech_enqueue_scripts() {
+function tomtech_enqueue_scripts() {
+    wp_enqueue_script('gsap', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js', array(), '3.5.1', true);
 
-// }
-// add_action('wp_enqueue_scripts', 'tomtech_enqueue_scripts');
+    wp_enqueue_script('main', get_template_directory_uri() . '/assets/js/main.js', array('gsap'), '1.0', true);
+}
+add_action('wp_enqueue_scripts', 'tomtech_enqueue_scripts');
 
 function tomtech_enqueue_styles() {
     wp_enqueue_style('tomtech-style', get_stylesheet_uri(), array(), '1.0');
