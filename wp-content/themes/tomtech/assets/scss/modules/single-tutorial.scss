@@ -11,7 +11,11 @@
     margin-top: 40px;
 
     @media screen and (min-width: $lg) {
-        .content-wrapper {
+        .content-wrapper:not(.with-columns) {
+            max-width: 55%;
+        }
+        
+        .content-wrapper.with-columns {
             column-count: 2;
             column-gap: 150px;
             column-rule: 1px solid $ivory;
