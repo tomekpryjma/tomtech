@@ -1,5 +1,10 @@
 <?php
 
+function tomtech_register_menus() {
+    register_nav_menu( 'primary', 'Primary Menu' );
+}
+add_action( 'init', 'tomtech_register_menus' );
+
 function tomtech_custom_post_types() {
     register_post_type('tutorial', array(
         'labels' => array(
