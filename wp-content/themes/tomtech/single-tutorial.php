@@ -1,8 +1,12 @@
-<?php get_header(); ?>
+<?php
+    $split_this_post_into_columns = get_field('split_this_post_into_columns');
 
-    <main id="tutorial-content">
+    get_header();
+?>
+
+    <article id="tutorial-content">
         <div class="container wider">
-            <div class="content-wrapper">
+            <div class="content-wrapper <?php echo $split_this_post_into_columns ? 'with-columns' : ''; ?>">
                 <div id="intro">
                     <h1><?php the_title(); ?></h1>
                     <?php the_content(); ?>
@@ -22,6 +26,6 @@
                 <?php endif; ?>
             </div>
         </div>
-    </main>
+    </article>
 
 <?php get_footer(); ?>
